@@ -1,0 +1,36 @@
+# Lines configured by zsh-newuser-install
+setopt appendhistory autocd extendedglob nomatch notify
+# End of lines configured by zsh-newuser-install
+
+setopt prompt_subst
+
+setopt nobeep
+
+setopt list_types
+
+setopt auto_list
+
+alias lg='ls -G'
+alias ll='ls -la -G'
+alias la='ls -a -G'
+
+autoload -U compinit
+compinit
+
+autoload -U colors
+colors
+
+#LANG='ja_JP.eucJP'
+#export LANG
+
+#local GREEN=$'%{\e[1;32m%}'
+#local BLUE=$'%{\e[1;34m%}'
+#local DEFAULT=$'%{\e[1;m%}'
+#PROMPT=$GREEN'[%n]%# '$WHITE
+#RPROMPT=$BLUE'[%~]'$WHITE
+
+PROMPT="%{${fg[yellow]}%}[%n]# %{${reset_color}%}"
+PROMPT2="%{${fg[yellow]}%}->: %{${reset_color}%}"
+SPROMPT="%{${fg[yellow]}%}correct:%R -> %r [n y a e]? %{${reset_color}%}"
+RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+setopt transient_rprompt
