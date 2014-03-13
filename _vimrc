@@ -1,7 +1,3 @@
-"--------------------
-"system
-"--------------------
-
 set nocompatible
 
 filetype off
@@ -20,7 +16,6 @@ NeoBundle 'Shougo/vimproc', {
 			\		'unix' : 'make -f make_unix.mak',
 			\		},
 			\ }
-"after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machiens_makefile
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -30,15 +25,6 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'koron/codic-vim'
-"----------
-"codic-vim
-"----------
-"<C-W>P move ResultWindow
-"<C-W><C-P> return EditWindow
-"<C-W><C-Z> close ResultWindow
-"'previewheight' is window height
-"Operation of a preview-window can be used as it is.
-":help preview-window
 NeoBundle 'VimClojure'
 NeoBundle 'tpope/vim-fireplace'
 "NeoBundle 'slimv.vim'
@@ -50,9 +36,16 @@ NeoBundleLazy 'kongo2002/fsharp-vim', {
 			\ }
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'ujihisa/unite-haskellimport'
-"cabal update && cabal install hoogle && hoogle data
-":Unite haskellimport
-":UniteWithCursorWord haskellimport
+
+"----------
+"codic-vim
+"----------
+"<C-W>P move ResultWindow
+"<C-W><C-P> return EditWindow
+"<C-W><C-Z> close ResultWindow
+"'previewheight' is window height
+"Operation of a preview-window can be used as it is.
+":help preview-window
 
 "--------------------
 " QuickRun
@@ -129,6 +122,10 @@ command! VCrepl :call s:InitCrepl('v')
 "--------------------
 "unite-haskellimport
 "--------------------
+"cabal update && cabal install hoogle && hoogle data
+":Unite haskellimport
+":UniteWithCursorWord haskellimport
+
 autocmd FileType haskell nnoremap <buffer> <C-i>UniteWithCursorWord haskellimport<Cr>
 
 "--------------------
@@ -285,6 +282,7 @@ function! s:VimClojureInitialize()
 	call s:SetStatusLine()
 endfunction
 
+"open window and run clojure repl
 function! s:InitCrepl(c)
 	exec 'only'
 	if a:c == 'v'
