@@ -1,4 +1,4 @@
-.rc
+dotfiles
 ===
 
-.rc files
+出先で確認したいとき用
