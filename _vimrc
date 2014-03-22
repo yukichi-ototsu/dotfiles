@@ -37,6 +37,8 @@ NeoBundleLazy 'kongo2002/fsharp-vim', {
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'ujihisa/unite-haskellimport'
 
+filetype plugin indent on
+
 "----------
 "codic-vim
 "----------
@@ -72,14 +74,6 @@ let g:quickrun_config = {
 			\		'tempfile': '%{tempname()}.fs',
 			\	},
 			\}
-
-"			\ 'outputter' : 'error',
-"			\ 'outputter/error/success' : 'buffer',
-"			\ 'outputter/error' : 'quickfix',
-
-filetype plugin on
-filetype indent on
-filetype on
 
 "set color scheme"
 colorscheme hybrid
@@ -161,9 +155,23 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
 " Decision selected candidacy.
 inoremap <expr><C-y> neocomplcache#close_popup()
 
-" Decision select
-inoremap <expr><Tab> pumvisible() ? "\<Down>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+	set conceallevel=2 concealcursor=i
+endif
 
 "--------------------
 "search
