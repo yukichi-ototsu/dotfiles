@@ -22,7 +22,9 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'koron/codic-vim'
 NeoBundle 'VimClojure'
@@ -34,7 +36,10 @@ NeoBundleLazy 'kongo2002/fsharp-vim', {
 			\		'filetypes': ['fsharp']
 			\		}
 			\ }
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'ujihisa/unite-haskellimport'
 
 filetype plugin indent on
