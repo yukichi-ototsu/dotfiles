@@ -198,8 +198,9 @@ set backspace=indent,eol,start
 "Clojure
 "--------------------
 "key bind
-"- cqp: Open REPL window.
-"- cqc: Open command line window.
+"- cqp: open REPL window.
+"- cqc: open command line window.
+"- cqq: code execution from history.
 "- [<C-D>:
 "- ]<C-D>: view source code of a function under the cursor.
 "- <C-W><C-D>:
@@ -209,9 +210,12 @@ set backspace=indent,eol,start
 "- Eval: evaluation of a function under the cursor.
 "- Eval (foo args): evaluation of a function 'foo'.
 "- %Eval: evaluation of this file.
+"- Last: view the results of the last executed.
 "- Doc println: see the documentation for 'println'.
+"- FindDoc prin: search 'prin' from the document.
 "- Source println: view source code of 'println'.
 "- Apropos print: search for 'print' in the namespace that is currently loaded.
+"- Console: run lein repl.
 
 autocmd FileType clojure call s:VimClojureInitialize()
 command! Crepl :call s:InitCrepl('v')
