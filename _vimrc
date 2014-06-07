@@ -27,11 +27,15 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'koron/codic-vim'
+NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'slimv.vim'
 NeoBundle 'VimClojure'
 NeoBundle 'tpope/vim-fireplace'
-"NeoBundle 'slimv.vim'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-pathogen'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-leiningen'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'tpope/vim-classpath'
 NeoBundleLazy 'kongo2002/fsharp-vim', {
 			\ 'autoload': {
 			\		'filetypes': ['fsharp']
@@ -189,6 +193,25 @@ set backspace=indent,eol,start
 "--------------------
 "let vimclojure#WantNailgun=1
 "let vimclojure#NailgunClient="ng"
+
+"--------------------
+"Clojure
+"--------------------
+"key bind
+"- cqp: Open REPL window.
+"- cqc: Open command line window.
+"- [<C-D>:
+"- ]<C-D>: view source code of a function under the cursor.
+"- <C-W><C-D>:
+"- <C-W>d: open the window the source code of the function under the cursor.
+"- gf: open the file of the namespace under the cursor.
+"command
+"- Eval: evaluation of a function under the cursor.
+"- Eval (foo args): evaluation of a function 'foo'.
+"- %Eval: evaluation of this file.
+"- Doc println: see the documentation for 'println'.
+"- Source println: view source code of 'println'.
+"- Apropos print: search for 'print' in the namespace that is currently loaded.
 
 autocmd FileType clojure call s:VimClojureInitialize()
 command! Crepl :call s:InitCrepl('v')
