@@ -119,63 +119,17 @@ imap <C-A> <Plug>(gosh_info_start_search_with_cur_keyword)
 nmap <F12> <Plug>(gosh_goto_define)
 nmap <F11> <Plug>(gosh_goto_define_split)
 
-let g:man = {
-			\	'gosh' : {
-			\		'command' : [
-			\			':GoshREPL',
-			\			':GoshREPLH',
-			\			':GoshREPLV',
-			\			':GoshREPLWithBuffer',
-			\			':GoshREPLWithBufferH',
-			\			':GoshREPLWithBufferV',
-			\			':GoshREPLSend'
-			\			],
-			\		'text' : [ '' ]
-			\		},
-			\	'vim' : {
-			\		'command' : [
-			\			'test'
-			\			],
-			\		'text' : [ '' ]
-			\		}
-			\	}
-
-function! s:man(title)
-	if has_key(g:man, a:title)
-		for t in g:man[a:title].command
-			echo t
-		endfor
-	else
-		echo 'key [' . a:title . '] is not found'
-		echo '['
-		for k in keys(g:man)
-			echon k
-			if k != keys(g:man)[len(g:man) - 1]
-				echon ','
-			endif
-		endfor
-		echon ']'
-	endif
-endfunction
-
-function! s:mantext(title)
-	for t in g:man[a:title].text
-		echo t
-	endfor
-endfunction
-
-command! -nargs=1 Man call s:man(<args>)
-command! -nargs=1 ManText call s:mantext(<args>)
-
 "set color scheme"
 colorscheme hybrid
 
 "encoding
 set encoding=utf-8
 set termencoding=utf-8
-set fileencoding=utf-8
-set fileencodings=ucs-bom,euc-jp,cp932,iso-2022-jp
-set fileencodings+=,ucs-2le,ucs-2,utf-8
+set fileencodings=utf-8
+set fileencodings+=ucs-bom,euc-jp,cp932,sjis,iso-2022-jp
+set fileencodings+=,ucs-2le,ucs-2
+",utf-8
+set fileformats=unix,dos,mac
 
 "set split direction
 set splitright
