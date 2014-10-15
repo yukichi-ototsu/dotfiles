@@ -185,6 +185,10 @@ command! HCrepl :call s:InitCrepl('h')
 command! VCrepl :call s:InitCrepl('v')
 
 "--------------------
+" Haskell
+"--------------------
+
+"--------------------
 "unite-haskellimport
 "--------------------
 "cabal update && cabal install hoogle && hoogle data
@@ -192,6 +196,11 @@ command! VCrepl :call s:InitCrepl('v')
 ":UniteWithCursorWord haskellimport
 
 autocmd FileType haskell nnoremap <buffer> <C-i>UniteWithCursorWord haskellimport<Cr>
+
+"--------------------
+"neco-ghc
+"--------------------
+"omnifunc: <C-x><C-o>
 autocmd FileType haskell call s:ghcmodcheck()
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
