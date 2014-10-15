@@ -19,7 +19,7 @@ NeoBundle 'Shougo/vimproc', {
 			\		'windows' : 'make -f make_mingw32.mak',
 			\		'cygwin' : 'make -f make_cygwin.mak',
 			\		'mac' : 'make -f make_mac.mak',
-			\		'unix' : 'make -f make_unix.mak',
+			\		'unix' : 'gmake -f make_unix.mak',
 			\		},
 			\ }
 NeoBundle 'Shougo/neocomplcache'
@@ -49,9 +49,11 @@ NeoBundleLazy 'kongo2002/fsharp-vim', {
 			\ }
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/neco-ghc'
+"NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'dag/vim2hs'
 NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'ujihisa/unite-haskellimport'
+NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'aharisu/vim-gdev'
 NeoBundle 'aharisu/vim_goshrepl'
 
@@ -190,6 +192,10 @@ command! VCrepl :call s:InitCrepl('v')
 ":UniteWithCursorWord haskellimport
 
 autocmd FileType haskell nnoremap <buffer> <C-i>UniteWithCursorWord haskellimport<Cr>
+autocmd FileType haskell call s:ghcmodcheck()
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+let g:necoghc_enable_detailed_browse = 1
 
 "--------------------
 "syntastic
@@ -370,4 +376,10 @@ function! s:InitCrepl(c)
 	exec sp . ' +VimShell'
 	exec 'VimShellSendString lein repl'
 	exec 'wincmd w'
+endfunction
+
+function! s:ghcmodcheck()
+	augroup ghcmodcheck
+		autocmd! BufWritePost <buffer> GhcModCheckAsync
+	augroup END
 endfunction
