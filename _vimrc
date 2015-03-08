@@ -122,7 +122,20 @@ nmap <F12> <Plug>(gosh_goto_define)
 nmap <F11> <Plug>(gosh_goto_define_split)
 
 "set color scheme"
+" colorscheme hybrid-light
 colorscheme hybrid
+
+let OSTYPE = system('uname')
+if OSTYPE == "Darwin\n"
+	autocmd ColorScheme * highlight LineNr ctermfg=242
+elseif OSTYPE == "Linux\n"
+else
+	echo 'other'
+endif
+
+"cursor highlight
+set cursorline
+set cursorcolumn
 
 "encoding
 set encoding=utf-8
